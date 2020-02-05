@@ -1,0 +1,17 @@
+version: "3.1"
+services:
+  rabbit:
+    image: rabbitmq:latest
+    ports:
+      - "5672:5672"
+
+  worker:
+    build:
+      context: worker
+      dockerfile: Dockerfile
+    environment:
+      - ENV
+    volumes:
+      - ./worker:/app:ro
+    depends_on:
+      - rabbit
