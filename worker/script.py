@@ -1,7 +1,3 @@
-import sys
-from tasks import add
+from tasks import long_running_task
 
-a = int(sys.argv[1])
-b = int(sys.argv[2])
-
-r = add.delay(a, b)
+long_running_task.delay()
